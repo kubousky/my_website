@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio.apps.PortfolioConfig',
     'sorl.thumbnail',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 THUMBNAIL_DEBUG = True
+
+AWS_ACCESS_KEY_ID = 'AKIAU2FK2CZG3BPMEHHQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'kubousky-portfolio'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

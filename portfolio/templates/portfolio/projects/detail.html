@@ -18,10 +18,9 @@
             
         </div>
         <div id="img-detail">
-            {% load thumbnail %}        
-            {% thumbnail project.image "350x230" crop="center" as pim %}
-                <img src="{% if pim %}{{ pim.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-            {% endthumbnail %}
+
+            <img src="{{ project.image.url }}" style="width:350px;height:230px;">
+
         </div>
     </div>
 {% endblock %}

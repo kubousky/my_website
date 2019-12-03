@@ -30,16 +30,15 @@
             <p id="line"></p>
             <div class="row main">
                 {% for project in projects %}
-                <!-- <div class="columns col-sm-5 col-md-3 col-l-4 col-lg-3"> -->
                 <div class="columns c-12 c-5 c-4 c-3">
                     <div class="item">
-                        {% load thumbnail %}
-                        {% thumbnail project.image "215x150" crop="center" as pim %}
-                            <a href="{{ project.get_absolute_url }}">
-                                <img src="{% if pim %}{{ pim.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-                            </a>
-                            <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
-                        {% endthumbnail %}
+             
+                        <a href="{{ project.get_absolute_url }}">
+                            <img src="{{ project.image.url }}" style="width:215px;height:150px;">
+                        </a>
+                        
+                        <a href="{{ project.get_absolute_url }}">{{ project.name }}</a>
+
                     </div>
                 </div>
                 {% endfor %}
