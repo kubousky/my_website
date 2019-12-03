@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rdaiz$2+6v74l@q=&wd@=wp5ws!g3^lxb1kz9wq6&q7&=6@t5v'
+
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -129,9 +131,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 THUMBNAIL_DEBUG = True
 
-AWS_ACCESS_KEY_ID = 'AKIAU2FK2CZG3BPMEHHQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'kubousky-portfolio'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
