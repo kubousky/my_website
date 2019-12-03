@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ project.name }}
+{% endblock %}
+
+{% block content %}
+    <div id="project-detail">
+        <div id="text-detail">
+            <h5><a href="{{ project.category.get_absolute_url }}">{{ project.category }}</a></h5> 
+            <h2>{{ project.name|linebreaks }}</h2>
+            <p {% if project.url == '' %}class="hidden"{% endif %}>web address: <a href="{{ project.url }}">{{ project.url }}</a></p>
+            <p>source code: <a href="{{ project.repository }}">{{ project.repository}}</a></p>
+            <p class="p-detail"></p>
+            {{ project.description|linebreaks }}    
+   
+            
+        </div>
+        <div id="img-detail">
+            {% load thumbnail %}        
+            {% thumbnail project.image "350x230" crop="center" as pim %}
+                <img src="{% if pim %}{{ pim.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+            {% endthumbnail %}
+        </div>
+    </div>
+{% endblock %}

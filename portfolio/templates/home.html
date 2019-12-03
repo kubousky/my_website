@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}jakub parcheta{% endblock %}
+
+{% block content %}
+
+<main class="flex-fill">
+  <div class="c d-flex align-content-around flex-wrap">
+    
+    <header class="row I-am">
+        <div class="col-m-4 col-x-3" id="logo" >
+            <h1><strong>ky.</strong></h1>
+        </div>
+        <div class="col-s-12 col-m-8 col-x-9" id="about-me">
+            <div id="hello">
+                <div id="hello_1">
+                    <div id="hi"><h2>Hi,</h2></div>
+                    <div id="welcome"><p>Welcome to my online portfolio. I´m a student of Web Application Development higher vocational training. Living and studing in Valencia, Spain.</p></div>
+                </div>
+                <div id="hello_2">
+                    <div id="logo_small"><h1><strong>ky.</strong></h1></div>
+                </div>
+            </div>
+            <div id="extra">
+                <div id='extra_1'>
+                    <div id="extra_1_1"><p>-</p></div>
+                    <div id="extra_1_2"><p>At that moment I go deep into python and its framework django, and into javascripts. It starts getting more interesting.</p></div>
+                </div>
+                <div id='extra_2'>
+                    <div id="extra_2_1"><p>-</p></div>
+                    <div id="extra_2_2"><p>I´m Jakub Parcheta and I invite you to explore my personal website.</p></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="separator">
+            <p>................................................................................................................................................................................................................................................................................................................................................</p>
+            <p>Recent works</p>
+    </section>
+
+    <section class="row highlighted">
+            <div class="project first cl-12 col-m-6 col-l-4 col-xl-2_5">
+                <div id="project_1">
+                    {% load thumbnail %}
+                    {% thumbnail project_1.image "215x150" crop="center" as p1im %}
+                    <a href="{{ project_1.get_absolute_url }}"><img src="{{ p1im.url }}"></a>
+                    {% endthumbnail %}
+                    <a href="{{ project_1.get_absolute_url }}">{{ project_1.name }}</a>
+                </div>
+            </div>  
+            <div class="project second cl-12 col-m-6 col-l-4 col-xl-3_5">
+                <div id="project_2">
+                    {% load thumbnail %}
+                    {% thumbnail project_2.image "215x150" crop="center" as p2im %}
+                    <a href="{{ project_2.get_absolute_url }}"><img src="{{ p2im.url }}"></a>
+                    {% endthumbnail %}
+                    <a href="{{ project_2.get_absolute_url }}">{{ project_2.name }}</a>
+                </div>
+            </div>
+            <div class="project third cl-12 col-m-6 col-l-4 col-xl-3_5">
+                <div id="project_3">
+                    {% load thumbnail %}
+                    {% thumbnail project_3.image "215x150" crop="center" as p3im %}
+                    <a href="{{ project_3.get_absolute_url }}"><img src="{{ p3im.url }}"></a>
+                    {% endthumbnail %}
+                    <a href="{{ project_3.get_absolute_url }}">{{ project_3.name }}</a>
+                </div>
+            </div>
+            <div class="project fourth cl-12 col-m-6 col-l-4 col-xl-2_5">
+                <div id="project_4">
+                    {% load thumbnail %}
+                    {% thumbnail project_4.image "215x150" crop="center" as p4im %}
+                    <a href="{{ project_4.get_absolute_url }}"><img src="{{ p4im.url }}"></a>
+                    {% endthumbnail %}
+                    <a href="{{ project_4.get_absolute_url }}">{{ project_4.name }}</a>
+                </div>
+            </div>
+        </section>
+  </div>
+</main>
+
+    <footer class='row footer'>
+        <div id="copy" class='co col-md-6 col-sm-12'>     
+            <a>Copyright © 2019, Jakub Parcheta</a>
+        </div>
+        <div id="contact" class='co col-md-5 col-sm-12'>     
+            <a>kubousky [at] gmail.com | (+34) 662 260 982 | in</a>
+        </div>
+    </footer> 
+
+{% endblock %}

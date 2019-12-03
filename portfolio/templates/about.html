@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block title %}about{% endblock %}
+ 
+{% block content %}
+<section id="about">
+        <div id="row-1" class="row">
+                <div class="col-about col-lg-4">
+                        <div id="me">
+                                <p>Hi there, my name is Jakub and come from Poland. I like to teach and love to spend my free time actively. If it comes to work I take care of details and most time it is difficult to pull me away from a desk.</p>
+                        </div>
+                </div>
+                <div class="col-about col-lg-6 ml-auto">
+                        <div id="poland">
+                                <p>11 years ago I moved to Valencia. It was a good choice.</p>
+                                <img src="{% static "img/polonia.png" %}" style="width:300px;">
+                        </div>
+                </div>
+        </div>
+        <div id="row-2" class="row d-flex justify-content-between">
+                <div class="col-about col-about-l-3 col-about-m-3_2 col-about-s-12">
+                        <div id="teacher">
+                                <img src="{% static "img/profesor.png" %}" style="width:178px;"></a>
+                                <p>The best way to understand a concept is to explain it to someone else. Check my students' 
+                                        <a href="https://www.tusclasesparticulares.com/profesores/jakub-parcheta/opiniones">reviews.</a></p>
+                        </div>
+                </div>
+                <div class="col-about col-about-l-4 col-about-m-4 col-about-s-12">
+                        <div id="kitesurfing">
+                                <p>Sun, water and kitesurfing... my recepi for an active rest day.</p>
+                                <img src="{% static "img/kitesurfing.jpg" %}" style="width:252px;">
+                        </div>
+                </div>
+                <div class="col-about col-about-l-5 col-about-m-4_5 col-about-s-12">
+                        <div id="travel">
+                                <img src="{% static "img/indo.jpg" %}" style="width:305px;">
+                                <p>A photo from my last summer travel. At the foot of the Bromo Volcan, Java, Indonesia.</p>
+                        </div>
+                </div>
+        </div>
+        <div id="row-3" class="row d-flex justify-content-between">  <!-- d-flex justify-content-between -->
+                <div class="col-about col-about-l-4 col-about-m-3_5 col-about-s-12">
+                        <div id="diving">
+                                <p>This summer I dived for the first time, it´s definitely worth trying.</p>
+                                <img src="{% static "img/buceo.jpg" %}" style="width:200px;">
+                        </div>
+                </div>
+                <div class="col-about col-about-l-4 col-about-m-4 col-about-s-12">
+                        <div id="snow">
+                                <img src="{% static "img/snowboard.jpg" %}" style="width:280px;">
+                                <p>Snowboarding is a good option for winter days, but still kitesurfing is my number one sport.</p>
+                        </div>
+                </div>
+
+                <div class="col-about col-about-l-4 col-about-m-4 col-about-s-12">
+                        <div id="cinema">
+                                <p>Is there anything better than Star Trek: The Next Generation? Absolutely yes, it´s Star Trek: Voyager - the TV series from 90´s.</p>
+                                <img src="{% static "img/voyager.jpg" %}" style="width:200px;">
+                        </div>
+                </div>
+        </div>
+</section>
+
+{% endblock %}
