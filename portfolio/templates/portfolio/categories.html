@@ -22,18 +22,18 @@
                 <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 left">
                                 <div id="one">
-                                        <!-- <a href="{{ backend.get_absolute_url }}"><img src="{{ backend.image.url }}" class="img-responsive fit-image"></a> -->
-                                        <a href="{{ backend.get_absolute_url }}"><img src="{% static "img/backend.png" %}" class="img-responsive fit-image"></a>
+                                        <a href="{{ backend.get_absolute_url }}"><img src="{{ backend.image.url }}" class="img-responsive fit-image"></a>
+                                        <!-- <a href="{{ backend.get_absolute_url }}"><img src="{% static "img/backend.jpg" %}" class="img-responsive fit-image"></a> -->
                                 </div>
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6 right">
                                 <div id="two">
-                                        <!-- <a href="{{ frontend.get_absolute_url }}"><img src="{{ frontend.image.url }}" class="img-responsive fit-image"></a> -->
-                                        <a href="{{ backend.get_absolute_url }}"><img src="{% static "img/frontend.jpg" %}" class="img-responsive fit-image"></a>
+                                        <a href="{{ frontend.get_absolute_url }}"><img src="{{ frontend.image.url }}" class="img-responsive fit-image"></a>
+                                        <!-- <a href="{{ backend.get_absolute_url }}"><img src="{% static "img/frontend.jpg" %}" class="img-responsive fit-image"></a> -->
                                 </div>
                                 <div id="three">
-                                        <a href="{{ scraping.get_absolute_url }}"><img src="{% static "img/webscraping.png" %}" class="img-responsive fit-image"></a>
-                                        <!-- <a href="{% url "portfolio:project_list" %}"><img src="{% static "img/all.jpeg" %}" class="img-responsive fit-image"></a> -->
+                                        <a href="{{ scraping.get_absolute_url }}"><img src="{{ scraping.image.url }}" class="img-responsive fit-image"></a>
+                                        <!-- <a href="{% url "portfolio:project_list" %}"><img src="{% static "img/webscraping.jpg" %}" class="img-responsive fit-image"></a> -->
                                 </div>
                         </div>
                 </div>
