@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Project
+from .models import Category, Project, Img
 
 
 def home(request):
@@ -13,7 +13,10 @@ def home(request):
                                         'project_4': project_4})
 
 def about(request):
-    return render(request, "about.html", {})
+    diving = Img.objects.get(slug="diving")
+    voyager = Img.objects.get(slug="voyager")
+    return render(request, "about.html", {'diving': diving,
+                                        'voyager': voyager})
 
 def contact(request):
     return render(request, "contact.html", {})

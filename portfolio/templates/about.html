@@ -45,7 +45,11 @@
                 <div class="col-about col-about-l-4 col-about-m-3_5 col-about-s-12">
                         <div id="diving">
                                 <p>This summer I dived for the first time, it´s definitely worth trying.</p>
-                                <img src="{% static "img/buceo.jpg" %}" class="img-responsive fit-image" style="width:200px;">
+                                {% load thumbnail %}
+                                {% thumbnail diving.image "x130" as im %}
+                                        <img src="{{ im.url }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                                <!-- <img src="{% static "img/buceo.jpg" %}" class="img-responsive fit-image" style="width:200px;"> -->
                         </div>
                 </div>
                 <div class="col-about col-about-l-4 col-about-m-4 col-about-s-12">
@@ -58,7 +62,11 @@
                 <div class="col-about col-about-l-4 col-about-m-4 col-about-s-12">
                         <div id="cinema">
                                 <p>Is there anything better than Star Trek: The Next Generation? Absolutely yes, it´s Star Trek: Voyager - the TV series from 90´s.</p>
-                                <img src="{% static "img/voyager.jpg" %}" class="img-responsive fit-image" style="width:200px;">
+                                {% load thumbnail %}
+                                {% thumbnail voyager.image "x250" crop="right" as im %}
+                                        <img src="{{ im.url }}" height="{{ im.height }}">
+                                {% endthumbnail %}
+                                <!-- <img src="{% static "img/voyager.jpg" %}" class="img-responsive fit-image" style="width:200px;"> -->
                         </div>
                 </div>
         </div>

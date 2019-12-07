@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Category, Project
+from .models import Category, Project, Img
+
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -11,3 +13,6 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ['created', 'updated']
     prepopulated_fields = {'slug': ('name',)}
 
+@admin.register(Img)
+class ImgAdmin(admin.ModelAdmin):
+    list_display = ['name', 'slug']

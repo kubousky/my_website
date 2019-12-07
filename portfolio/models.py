@@ -1,5 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from sorl.thumbnail import ImageField
+
+class Img(models.Model):
+    name = models.CharField(max_length=50, db_index=True)
+    slug = models.SlugField(max_length=50, unique=True)
+    image = ImageField(upload_to='about/%Y/%m/%d')
 
 class Category(models.Model):
     name = models.CharField(max_length=50, db_index=True)

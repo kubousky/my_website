@@ -5,5 +5,5 @@ jQuery(function($){
 
 });
 // refresh page when resize browser
-// $(window).on('resize',function(){location.reload();});
+$(window).on('resize',function(){location.reload();});
 
