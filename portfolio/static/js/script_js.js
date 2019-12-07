@@ -4,7 +4,7 @@ jQuery(function($){
     $('.c').css('height', mainHeight );
 
 });
-// refresh page on browser resize
+// refresh page when resize browser
 $(window).on('resize',function(){location.reload();
 });
 
