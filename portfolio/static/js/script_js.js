@@ -5,7 +5,7 @@ jQuery(function($){
 
 });
 
-if ('http://jakub-parcheta.herokuapp.com/' == window.location.href ||'http://localhost:8000/' == window.location.href){
+if ('http://jakub-parcheta.herokuapp.com/' == window.location.href ||   'http://localhost:8000/' == window.location.href){
 // refresh page when resize browser
-$(window).on('resize',function(){location.reload();});
+    $(window).on('resize',function(){location.reload();});
 }
