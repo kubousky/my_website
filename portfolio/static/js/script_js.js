@@ -4,6 +4,8 @@ jQuery(function($){
     $('.c').css('height', mainHeight );
 
 });
+
+if ('http://jakub-parcheta.herokuapp.com/' == window.location.href ||'http://localhost:8000/' == window.location.href){
 // refresh page when resize browser
 $(window).on('resize',function(){location.reload();});
-
+}
