@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['jakub-parcheta.herokuapp.com', 'localhost', 'jakub-parcheta.net']
 
@@ -96,6 +96,7 @@ WSGI_APPLICATION = 'mypage.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
+
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
