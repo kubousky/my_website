@@ -243,6 +243,12 @@ html,body {
 #contact a{
     float: right;
     white-space: nowrap;
+    color: rgb(185, 184, 184);
+    text-decoration: none;
+}
+#contact a:hover{
+    color: rgb(215, 218, 218);
+    text-decoration: none;
 }
 
 /* ######################################### Categories */
