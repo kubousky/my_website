@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Project, Img
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def home(request):
@@ -48,6 +49,10 @@ def project_list(request, category_slug=None):
     frontend = Category.objects.get(slug="frontend")
     scraping = Category.objects.get(slug="scraping")
     projects = Project.objects.all()
+    paginator = Paginator(projects, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         projects = projects.filter(category=category)
@@ -55,7 +60,9 @@ def project_list(request, category_slug=None):
                     'portfolio/projects/list.html',
                     {'category': category,
                     'categories': categories,
-                    'projects': projects, 'backend': backend, 'frontend': frontend, 'scraping': scraping})
+                    'projects': projects, 
+                    'backend': backend, 'frontend': frontend, 'scraping': scraping,
+                    'page_obj': page_obj})
 
 def project_detail(request, id, slug):
     project = get_object_or_404(Project,

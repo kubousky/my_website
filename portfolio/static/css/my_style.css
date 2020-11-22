@@ -9,6 +9,7 @@ html,body {
     padding-left:0; 
     padding-right:0;
     min-height: 100vh;
+    /* border: solid red 1px; */
 }
 
 .flex-fill {
@@ -216,7 +217,24 @@ html,body {
     color: rgb(185, 184, 184);
 }
 
-/* ################################  footer   */ 
+/* pagination */
+.page { 
+    color: rgb(185, 184, 184);
+    font-family: 'Slabo 13px', serif;
+    /* border: solid green 1px; */
+    width: 85%;
+    margin-left: 3%;
+}
+.page .prev-last{
+    color: #0078B9;
+}
+.page-number{
+   float: right;
+}
+.page a{
+    text-decoration: none;
+}
+/* ################################ footer */ 
 .footer{
     font-family: 'Slabo 13px', serif;
     font-size: 13px;
@@ -228,8 +246,8 @@ html,body {
     color: rgb(185, 184, 184);
     display: inline-block;
     overflow: hidden;
-
 }
+
 .co{
     padding:10px;
     padding-bottom:5px;
@@ -327,6 +345,7 @@ header p{
     margin-right: 10px;
     margin-bottom: 10px;
     display: inline-flex;
+    /* border: solid green 1px; */
 }
 
 #sidebar {
@@ -383,6 +402,7 @@ header p{
     width: 85%;
     margin-left: 20px;
     margin-top: 50px;
+    /* border: solid red 1px; */
 }
 
 #main h3{
@@ -597,6 +617,7 @@ font-size: 18px;
 .col-about {
     padding: 10px;
 }
+
 
 
 @media only screen and (max-width: 370px) and (min-width: 320px) {

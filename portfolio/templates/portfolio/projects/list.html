@@ -29,7 +29,7 @@
             <h3>{% if category %}{{ category.name }}{% else %}All projects{% endif %}</h3>
             <p id="line"></p>
             <div class="row main">
-                {% for project in projects %}
+                {% for project in page_obj %}
                 <div class="columns c-12 c-5 c-4 c-3">
                     <div class="item">
              
@@ -43,9 +43,26 @@
                 </div>
                 {% endfor %}
             </div>
-            
-        </div>
-
+        </div>        
     </div>
+
+
+    <div class="page mt-auto">
+        <span class="page-number">
+            {% if page_obj.has_previous %}
+                <a class="prev-last" href="?page={{ page_obj.previous_page_number }}">&laquo; previous</a>
+            {% endif %}
+            
+            <span>
+                page {{ page_obj.number }} || {{ page_obj.paginator.num_pages }}
+            </span>
+            
+            {% if page_obj.has_next %}
+                <a class="prev-last" href="?page={{ page_obj.next_page_number }}">next &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+
 
 {% endblock %}
