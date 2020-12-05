@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Project, Img
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.core.mail import send_mail
+from django.contrib import messages
 
 def home(request):
     project_1 = Project.objects.get(slug="sport-event")
@@ -20,7 +21,23 @@ def about(request):
                                         'voyager': voyager})
 
 def contact(request):
-    return render(request, "contact.html", {})
+    if request.method == 'POST':
+        message_name = request.POST['message-name']
+        message_email = request.POST['message-email']
+        message_phone = request.POST['message-phone']
+        message = request.POST['message']
+
+        if message_phone:
+            message += "\n\n" + message_email + "\n" + message_phone
+        else:
+            message += "\n\n" + message_email
+
+        send_mail(message_name,message,'kubousky@gmail.com',['jakub.parcheta@gmail.com'],fail_silently=False)
+        # messages.success(request, ('Thank you %s! We received your email and will contact you shortly.' % message_name))
+        messages.success(request, (message_name))
+        return render(request, "contact.html", {})
+    else:
+        return render(request, "contact.html", {})
 
 
 def categories(request, category_slug=None):
@@ -49,28 +66,44 @@ def project_list(request, category_slug=None):
     frontend = Category.objects.get(slug="frontend")
     scraping = Category.objects.get(slug="scraping")
     projects = Project.objects.all()
-    paginator = Paginator(projects, 8)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         projects = projects.filter(category=category)
+
+    # si quiera quitar paginas hay que volver a cambier '{% for project in page_projects %}' en list.html por '{% for project in projects %}'
+    paginator = Paginator(projects, 8)
+    page = request.GET.get('page')
+    page_projects = paginator.get_page(page)
+
     return render(request, 
                     'portfolio/projects/list.html',
                     {'category': category,
                     'categories': categories,
                     'projects': projects, 
-                    'backend': backend, 'frontend': frontend, 'scraping': scraping,
-                    'page_obj': page_obj})
+                    'backend': backend, 
+                    'frontend': frontend, 
+                    'scraping': scraping,
+                    'page_projects': page_projects})
+
 
 def project_detail(request, id, slug):
-    project = get_object_or_404(Project,
-                                id=id,
-                                slug=slug)
+
+    projects = Project.objects.order_by('pk')
+    paginator = Paginator(projects, 1)
+    if 'page' in request.GET:
+        project = paginator.get_page(request.GET['page'])
+    else:
+        page = Project.objects.filter(pk__lte=id).count()
+        project = paginator.get_page(page)
+    
     return render(request,
                     'portfolio/projects/detail.html',
                     {'project': project})
+
+
+
+
 
     
 

@@ -166,3 +166,11 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # THUMBNAIL_FORCE_OVERWRITE = True
+
+# MAIL
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kubousky@gmail.com'
+EMAIL_HOST_PASSWORD = 'Barburella1'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

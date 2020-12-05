@@ -7,20 +7,40 @@
 
 {% block content %}
     <div id="project-detail">
-        <div id="text-detail">
-            <h5><a href="{{ project.category.get_absolute_url }}">{{ project.category }}</a></h5> 
-            <h2>{{ project.name|linebreaks }}</h2>
-            <p {% if project.url == '' %}class="hidden"{% endif %}>web address: <a href="{{ project.url }}">{{ project.url }}</a></p>
-            <p>source code: <a href="{{ project.repository }}">{{ project.repository}}</a></p>
-            <p class="p-detail"></p>
-            {{ project.description|linebreaks }}    
-   
-            
-        </div>
-        <div id="img-detail">
 
-            <img src="{{ project.image.url }}" style="width:350px;height:230px;">
+        {% for p in project %} <!-- 'project' is a paginator object -->
 
-        </div>
+            <div id="text-detail">
+                <h5><a href="{{ p.category.get_absolute_url }}">{{ p.category }}</a></h5> 
+                <h2>{{ p.name|linebreaks }}</h2>
+                <p {% if project.url == '' %}class="hidden"{% endif %}>web address: <a href="{{ project.url }}">{{ p.url }}</a></p>
+                <p>source code: <a href="{{ p.repository }}">{{ p.repository}}</a></p>
+                <p class="p-detail"></p>
+                {{ p.description|linebreaks }}      
+            </div>
+            <div id="img-detail">
+                <img src="{{ p.image.url }}" style="width:350px;height:230px;">
+            </div>
+
+        {% endfor %}
     </div>
+
+    <!-- 'project' is a paginator object -->
+    <div class="page mt-auto">
+        <span class="page-number">
+            {% if project.has_previous %}
+                <a class="prev-last" href="?page={{ project.previous_page_number }}">&laquo; previous</a>
+            {% endif %}
+                
+            <span>
+                page {{ project.number }} || {{ project.paginator.num_pages }}
+            </span>
+                
+            {% if project.has_next %}
+                <a class="prev-last" href="?page={{ project.next_page_number }}">next &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
 {% endblock %}
+
