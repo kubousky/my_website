@@ -1,6 +1,12 @@
 import os
 import dotenv
 
+########## IMPORTANT ###########
+'''
+manage.py > os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mypage.settings.production')  # change .production for .developement
+wsgi.py > os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mypage.settings.production') # change .production for .developement
+'''
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
