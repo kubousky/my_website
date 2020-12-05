@@ -13,7 +13,7 @@
             <div id="text-detail">
                 <h5><a href="{{ p.category.get_absolute_url }}">{{ p.category }}</a></h5> 
                 <h2>{{ p.name|linebreaks }}</h2>
-                <p {% if project.url == '' %}class="hidden"{% endif %}>web address: <a href="{{ project.url }}">{{ p.url }}</a></p>
+                <p {% if project.url == '' %}class="hidden"{% endif %}>web address: <a href="{{ p.url }}">{{ p.url }}</a></p>
                 <p>source code: <a href="{{ p.repository }}">{{ p.repository}}</a></p>
                 <p class="p-detail"></p>
                 {{ p.description|linebreaks }}      
