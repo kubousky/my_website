@@ -44,6 +44,6 @@ SECURE_SSL_REDIRECT = True
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kubousky@gmail.com'
-EMAIL_HOST_PASSWORD = 'Ryszard1' # add to Heroku config
+EMAIL_HOST_PASSWORD = 'Maciejpaciej1' # add to Heroku config
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
