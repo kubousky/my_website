@@ -2,8 +2,9 @@ from .base import *
 
 import django_heroku
 import dj_database_url
+from decouple import config
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['jakub-parcheta.herokuapp.com', 'jakub-parcheta.net']
 
@@ -44,6 +45,6 @@ SECURE_SSL_REDIRECT = True
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kubousky@gmail.com'
-EMAIL_HOST_PASSWORD = 'Maciejpaciej1' # add to Heroku config
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') # add to Heroku config
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
