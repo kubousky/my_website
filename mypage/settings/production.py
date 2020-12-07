@@ -39,12 +39,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-# Forcing an application to use SSL/TLS
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kubousky@gmail.com'
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') # add to Heroku config
-EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') # in Heroku settings > reveal config Vars can add variables (.env doesnt work) 
+EMAIL_PORT = 587                                    # then check it in teh console with a command Heroku config -app jakub-parcheta
 EMAIL_USE_TLS = True
